@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Crete+Round" rel="stylesheet">
+<style>
+body {
+  background: url("https://i.imgur.com/oXmscCj.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.card_edit {
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  display:inline-block;
+  font-family: 'Crete Round', serif;
+  text-align: center;
+  width: 1000px;
+  margin-left: 60px;
+  vertical-align: top;
+  background-color: #ff9898;
+  margin-top: 25px;
+  font-size: 18px;
+  padding: 5px ;
+}
+button {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    display: block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 50px auto;
+	text-align: center;
+}
+</style>
+<div class="card_edit">
+<form>
+    <!--<div class="alert alert-success" role="alert" id="successMessage">Info updated. You can go back to your <a ui-sref="profile">profile</a> now!</div>-->
+    
+    <h2 class="form-auth-heading">Edit Info</h2>
+
+    <p>Email: </p>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="text" id="inputEmail" ng-model="eic.email" class="form-control" placeholder="Email" required autofocus> <br>
+    
+    <p>First Name: </p>
+    <label for="inputfirstname" class="sr-only">First Name</label>
+    <input type="text" id="inputfirstname" ng-model="eic.firstname" class="form-control" placeholder="firstname" required autofocus> <br>
+    
+    <p>Last Name: </p>
+    <label for="inputlastname" class="sr-only">Last Name</label>
+    <input type="text" id="inputlastname" ng-model="eic.lastname" class="form-control" placeholder="lastname" required autofocus> <br>
+    
+    <h3 class="form-auth-heading">Change your avatar</h3>
+    <label for="inputProfilepic" class="sr-only">Profile Avatar</label>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/O9muu50.png" checked>Default <img width='75' height='75' src='https://i.imgur.com/O9muu50.png'>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/EhP0EcK.png">Cat <img width='75' height='75' src='https://i.imgur.com/EhP0EcK.png'>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/MQTUOxK.png">Rat <img width='75' height='75' src='https://i.imgur.com/MQTUOxK.png'>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/T4cBc2i.png">Black Bear <img width='75' height='75' src='https://i.imgur.com/T4cBc2i.png'><br>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/IseJUQ2.png">Utensils <img width='75' height='75' src='https://i.imgur.com/IseJUQ2.png'>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/DDi7sfg.png">Mandala <img width='75' height='75' src='https://i.imgur.com/DDi7sfg.png'>
+    <input type="radio" id="inputProfilepic" ng-model="eic.profilepic" value="https://i.imgur.com/cn7aQsF.png">Mario Mushroom <img width='75' height='75' src='https://i.imgur.com/cn7aQsF.png'><br>
+    
+    <br>
+    <p>Bio: </p>
+    <label for="inputBio" class="sr-only">Bio</label>
+    <input type="text" id="inputBio" ng-model="eic.bio" class="form-control" placeholder="bio" autofocus>
+    
+    <br>
+    <p>Interests: </p>
+    <label for="inputInterest" class="sr-only">Bio</label>
+    <input type="text" id="inputInterest" ng-model="eic.interest" class="form-control" placeholder="Interests" autofocus>
+    
+    <br>
+    <p>Favorite Recipe: </p>
+    <label for="inputFavoriterecipe" class="sr-only">Bio</label>
+    <input type="text" id="inputFavoriterecipe" ng-model="eic.favoriterecipe" class="form-control" placeholder="Favorite Recipe" autofocus>
+
+
+    <!-- How to define user in this page??? -->
+    <!-- DEFINED!!!-->
+    <!--<p>Here's something: {{ eic.username }}</p>-->
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="eic.editinfoMethod(eic.username, eic.email, eic.firstname, eic.lastname, eic.profilepic, eic.bio, eic.interest, eic.favoriterecipe)" onclick="showmessage()" ui-sref="profile">Edit Info</button>
+</form>
+</div>

@@ -1,0 +1,205 @@
+<!-- Slideshow added to this page (homepage)
+---------------------------------
+This is what it was before:
+<div class="jumbotron text-center">  
+    <h1>Welcome!</h1>
+    <p>Hope you have a good stay</p>
+    <a href="#" target="_blank">
+        <button class="btn btn-success btn-lg">Learn More</button>
+    </a>
+</div>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Crete+Round" rel="stylesheet">
+<style>
+body {
+  /*background-image: url("https://i.imgur.com/ftuLBm3.jpg");*/
+  /*background-image: url("https://i.ibb.co/VBKCkhQ/Adobe-Stock-85324374-1.jpg");*/
+  /*background-image: url("https://i.imgur.com/T4d9Tgq.jpg"); Beige Cloth */
+  background-image: url("https://i.imgur.com/AWOeB7K.jpg");
+  font-family: Helvetica, sans-serif, JuneBug;
+  background-attachment: fixed;
+  text-align: center;
+    /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center -120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#slideshow {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  height: 240px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: 2912px;
+  -webkit-animation: slide 16s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 510px;
+  width: 728px;
+}
+
+.slide:nth-child(1) {
+   background-image: url(https://static01.nyt.com/images/2016/05/17/dining/chicken-fajitas/chicken-fajitas-articleLarge.jpg);
+}
+
+.slide:nth-child(2) {
+   background-image: url(https://assets.epicurious.com/photos/553964e7ff11a7f13ba7b1db/6:4/w_620%2Ch_413/tools%26meatballs9687.jpg);
+}
+
+.slide:nth-child(3) {
+   background-image: url(https://39p3il2d36il26rdyd2qpbrh-wpengine.netdna-ssl.com/wp-content/uploads/2019/02/cheesy-chili-fries.png);
+}
+
+.slide:nth-child(4) {
+   background-image: url(https://thechalkboardmag.com/wp-content/uploads/2013/04/pad-thai-sarma-pure-food-and-wine.jpg);
+}
+
+.slide-number {
+  color: #000;
+  text-align: center;
+  font-size: 10em;
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -728px;}
+  50% {margin-left: -728px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -2184px;}
+  90% {margin-left: -2184px;}
+}
+.search-container {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+.survey {
+  max-width: 1000px;
+  display:inline-block;
+  text-align: center;
+}
+button {
+	  position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    display: block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 50px auto;
+	  text-align: center;
+}
+.card_slideshow {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  width: 470px;
+  display:inline-block;
+  text-align: center;
+  font-family: 'Crete Round', serif;
+  background-color: #e1c699;
+  margin-left: 15px;
+  padding: 5px;
+}
+.card_link1 {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  width: 220px;
+  display:inline-block;
+  text-align: center;
+  font-family: 'Crete Round', serif;
+  background-color: silver;
+  vertical-align:top;
+  padding: 5px;
+}
+.card_link2 {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  width: 220px;
+  display:inline-block;
+  text-align: center;
+  font-family: 'Crete Round', serif;
+  background-color: #ff9898;
+  vertical-align:top;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card_link1">
+  <p>Want recipe ideas?
+  Here are the Food Network's <br />
+  Top 10  
+  Recipes. <br /> 
+  Click to view.</p>
+  <a href="https://www.foodnetwork.com/fn-dish/recipes/2018/12/our-top-10-fan-favorite-recipes-of-2018" target="_blank"> <img border="0" alt="W3Schools" src="https://i.imgur.com/HbySNDD.jpg" width="200" height="200"> </a>
+  </div>
+</div>
+
+<div class="card_slideshow">
+<div style="margin: 15px 0;">
+<div id="slideshow">
+  <div class="slide-wrapper">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+</div>
+<div style="margin: 10px 0;"> </div>
+<p>Look delicious? Search and manage your own recipes here at Fork It. </p>
+<div style="margin: -18px 0;"> </div>
+</div>
+</div>
+
+<div class="card_link2">
+  <p>Mother's day is coming up.
+  Here are 12 gifts she might
+  like for the kitchen. <br /> 
+  Click to view.</p>
+  <a href="https://www.epicurious.com/expert-advice/12-mothers-day-gift-ideas-for-the-kitchen-article" target="_blank"> <img border="0" alt="W3Schools" src="https://i.imgur.com/hjjlUwj.png" width="200" height="200"> </a>
+
+</div>
+
+
+<!-- Button
+<div class="card_link2">
+    <span class="dot"></span>
+  </div>
+  <div style="margin: 6px 0;">
+</div>
+</div>
+
+
+
+
+
+---------------------------------
+This is what it was before:
+<div class="survey">
+  <p><button> Like what you see? Get started by
+  taking the ranking survey.</button></p>
+</div>
+-->
+
+</body>
+</html>

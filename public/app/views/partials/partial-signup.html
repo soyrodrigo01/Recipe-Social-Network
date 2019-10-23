@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Crete+Round" rel="stylesheet">
+<style>
+body {
+  background: url("https://i.imgur.com/D8bufVQ.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.card_signup {
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  display:inline-block;
+  font-family: 'Crete Round', serif;
+  text-align: center;
+  width: 1000px;
+  margin-left: 60px;
+  vertical-align: top;
+  background-color: orange;
+  margin-top: 25px;
+  font-size: 18px;
+  padding: 5px ;
+}
+button {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    display: block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 50px auto;
+	text-align: center;
+}
+</style>
+<div class="card_signup">
+<form class="form-auth">  
+    <h2 class="form-auth-heading">Signup</h2>
+
+    <div class="alert alert-danger" ng-if="sc.signupError" role="alert">{{ sc.signupErrorMessage }}</div>
+    <div class="alert alert-success" ng-if="sc.signupSuccess" role="alert">Account created! You can <a ui-sref="login">login</a> now!</div>
+
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" ng-model="sc.username" class="form-control" placeholder="Username" required autofocus>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" ng-model="sc.password" class="form-control" placeholder="Password" required>
+    
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="text" id="inputEmail" ng-model="sc.email" class="form-control" placeholder="Email" required>
+    
+    <label for="inputFirstname" class="sr-only">First name</label>
+    <input type="text" id="inputFirstname" ng-model="sc.firstname" class="form-control" placeholder="First name" required>
+    
+    <label for="inputLastname" class="sr-only">Last name</label>
+    <input type="text" id="inputLastname" ng-model="sc.lastname" class="form-control" placeholder="Last name" required>
+    <br>
+    <!-- Original Code:
+    <h3 class="form-auth-heading">Choose an avatar</h3>
+    <label for="inputProfilepic" class="sr-only">Profile Avatar</label>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/O9muu50.png" checked>Default <img width='75' height='75' src='https://i.imgur.com/O9muu50.png'>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/EhP0EcK.png">Cat <img width='75' height='75' src='https://i.imgur.com/EhP0EcK.png'>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/MQTUOxK.png">Rat <img width='75' height='75' src='https://i.imgur.com/MQTUOxK.png'>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/T4cBc2i.png">Black Bear <img width='75' height='75' src='https://i.imgur.com/T4cBc2i.png'><br>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/IseJUQ2.png">Utensils <img width='75' height='75' src='https://i.imgur.com/IseJUQ2.png'>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/DDi7sfg.png">Mandala <img width='75' height='75' src='https://i.imgur.com/DDi7sfg.png'>
+    <input type="radio" id="inputProfilepic" ng-model="sc.profilepic" value="https://i.imgur.com/cn7aQsF.png">Mario Mushroom <img width='75' height='75' src='https://i.imgur.com/cn7aQsF.png'><br>
+    -->
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="sc.signup()">Signup</button>
+</form>
+</div>        

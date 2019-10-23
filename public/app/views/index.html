@@ -1,0 +1,75 @@
+<!doctype html>  
+<html class="no-js" lang="en" ng-app="jamesAuth">  
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+        <meta charset="utf-8">
+        <base href="/">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Fork It</title>
+        <meta name="description" content="Authentication system using JWTs, Angular, MySQL, Express and the Sequelize ORM.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            footer {
+              border-top: 1px solid rgba(0,0,0,.1);
+              margin-top: 4em !important;
+              padding-top: 1em;
+              text-align: center;
+              font-family: 'Crete Round', serif;
+            }
+        
+        </style>
+    </head>
+    <body class="container">
+        <div class="top-bar d-flex border border-light rounded flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom box-shadow" role="navigation" ng-controller="NavController as nc">
+            <h5 class="my-0 mr-md-auto font-weight-normal">
+                <a ui-sref="index">
+                    <img style="width: 200px;" src="https://i.imgur.com/9E6SljE.png">
+                    <!-- Original Image, should we revert:
+                          https://i.imgur.com/Z1BM7Oj.png
+                      -->
+                </a>
+            </h5>
+                
+            <nav class="my-2 my-md-0 mr-md-3">
+            <div class="container-fluid">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ui-sref="index">Home</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ui-sref="search">Search</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ng-if="!nc.isAuthenticated()" class="p-2 text-dark" ui-sref="login">Login</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ng-if="!nc.isAuthenticated()" class="p-2 text-dark" ui-sref="signup">Signup</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ng-if="nc.isAuthenticated()" class="p-2 text-dark" ui-sref="profile">Profile</button> 
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" ng-if="nc.isAuthenticated()" class="p-2 text-dark" ng-click="nc.logout()">Logout</button>
+            </div>
+            </nav>
+        </div>
+         <!-- May need:
+          <a class="p-2 text-dark" ui-sref="index">Home</a>
+         -->
+
+        <div ui-view></div>
+
+        <!-- Libraries -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+        <!-- App Scripts -->  
+        <script src="app/app.js"></script>  
+        <script src="app/services/authService.js"></script>  
+        <script src="app/services/searchService.js"></script>  
+        <script src="app/controllers/loginController.js"></script>
+        <script src="app/controllers/profileController.js"></script>
+        <script src="app/controllers/adminController.js"></script>
+        <script src="app/controllers/signupController.js"></script>
+        <script src="app/controllers/editinfoController.js"></script>
+        <script src="app/controllers/navController.js"></script>
+        <script src="app/controllers/searchController.js"></script>
+        <script src="app/javascripts/showpicture.js"></script>
+        
+         <!-- Deleted footer:
+       <footer>Built with <a href="https://expressjs.com/">Express.js</a>.
+        </footer>
+          -->
+        
+    </body>
+</html>

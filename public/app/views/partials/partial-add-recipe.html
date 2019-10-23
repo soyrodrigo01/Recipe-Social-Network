@@ -1,0 +1,36 @@
+<style>
+    
+</style>
+<form class="form-recipe">
+    <h2 class="form-recipe-heading">Add Recipe</h2>
+    
+    <label for="inputName" class="sr-only">Recipe Title</label>     <!--100 char limit-->
+    <input type="text" id="inputName" maxlength="100" size="100" placeholder="Title" required/>
+    <br>
+
+    <label for="inputDescription" class="sr-only">Short Description</label>     <!--200 char limit--> 
+    <textarea type="text" id="inputDescription" maxlength="200" rows="4" cols="100" placeholder="Description" required></textarea>
+    <br>
+
+    <label for="inputInstructions" class="sr-only">Instructions</label>     <!--2000 char limit-->
+    <textarea type="text" id="inputInstructions" maxlength="2000" rows="8" cols="100" placeholder="Instructions" required></textarea>
+    <br>
+
+    <label for="inputCuisine" class="sr-only">Cuisine</label>       <!--50 char limit-->
+    <input type="text" id="inputCuisine" maxlength="50" placeholder="Cuisine" required/>
+    <br>
+
+    <label for="inputTime" class="sr-only">Minutes to Make Recipe</label>   <!--int-->
+    <input type="number" id="inputTime" placeholder="Minutes" required/>
+    <br>
+
+    <label for="inputSource" class="sr-only">Source</label>     <!--200 char limit, name of author, link etc.-->
+    <input type="text" id="inputSource" maxlength="200" size="100" placeholder="Source URL" required/>    
+    <br>
+
+    <label for="inputSource" class="sr-only">Image URL</label>
+    <input type="text" id="inputImage" maxlength="500" size ="100" placeholder="Image URL" required/>   
+    <br>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="arc.addRecipe()">Add Recipe</button>
+</form>

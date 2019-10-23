@@ -1,0 +1,412 @@
+<!-- Original Code:
+    To get more parameters, modify profileController.js
+    and userController.js following the same pattern
+    as written in the previous lines.
+    <h1>User Profile</h1>  
+    <p>Welcome {{ pc.firstname }} {{ pc.lastname }}</p>
+    <p>Your username is: {{ pc.username }}</p>
+    <p>Your email is: {{ pc.email }}</p>
+    <p>Password: {{ pc.password }}</p>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Open+Sans|Crete+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.overlay {
+  position: fixed;
+
+  width: 50%;
+  height: 70%;
+
+  top: 15%;
+  left: 25%;
+  background-color: rgba(0, 0, 0, 0.9);
+        
+  z-index: 2;
+        
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 12px;
+  color: white;
+  transform: translate(-5%, -5%);
+  -ms-transform: translate(-5%, -5%);
+}
+
+body {
+  background-image: url("https://i.imgur.com/MTuEUCu.jpg");
+  font-family: Helvetica, sans-serif, JuneBug;
+  background-attachment: fixed;
+  text-align: center;
+  
+    /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+table {
+    border-collapse: collapse;
+    /*table-layout:fixed;*/
+    width: 100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.solid {
+  border-style: solid;
+  font-family: 'Helvetica';
+  border-color: #003366;
+  color: #003366;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  width: 250px;
+  display:inline-block;
+  text-align: center;
+  font-family: 'Crete Round', serif;
+  background-color: #ff9898;
+}
+.card_bio {
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  display:inline-block;
+  font-family: 'Crete Round', serif;
+  text-align: center;
+  white-space: pre-wrap;
+  width: 600px;
+  margin-left: 10px;
+  vertical-align:top;
+  background-color: #ccccff;
+}
+.card_recipe {
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  width: 400px;
+  text-align: center;
+  font-family: 'Crete Round', serif;
+  background-color: #ABC2D8;
+  display:inline-block;
+  vertical-align: top;
+  margin-top: -30px;
+}
+.card_saved_recipes {
+      border-radius: 5px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+      display:inline-block;
+      font-family: 'Crete Round', serif;
+      text-align: center;
+      width: 860px;
+      
+      vertical-align: top;
+      background-color: #98ffcc;
+      margin-top: 25px;
+      font-size: 18px;
+      padding: 5px ;
+}
+.card_fun_fact {
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+  display:inline-block;
+  font-family: 'Crete Round', serif;
+  text-align: center;
+  white-space: pre-wrap;
+  width: 450px;
+  margin-left: 10px;
+  vertical-align: top;
+  background-color: orange;
+  margin-top: -30px;
+}
+.title {
+  color: grey;
+  font-size: 16px;
+}
+
+button {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    display: block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(180,61,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 50px auto;
+	  text-align: center;
+}
+
+.button_menu {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  font-family: 'Crete Round', serif;
+  margin: 0px auto;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0px 0px 0px rgba(219,31,5,1), 0px 0px 0px rgba(0,0,0,.7);
+  -moz-box-shadow: 0px 0px 0px rgba(219,31,5,1), 0px 0px 0px rgba(0,0,0,.7);
+  box-shadow: 0px 0px 0px rgba(219,31,5,1), 0px 0px 0px rgba(0,0,0,.7);
+}
+
+.recipe_buttons {
+  max-width: 1000px;
+  text-align: center;
+  display:block;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.button_2 {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    display: inline-block;
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 10px auto;
+	width: 160px;
+	text-align: center;
+}
+
+button_2 {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    display: inline-block;
+    font-family: 'Crete Round', serif;
+    font-weight: 700;
+    font-size: 18;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 10px auto;
+	width: 160px;
+	text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h1 {
+  font-weight: bold;
+  color: #003366;
+  font-size: 16px;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+.column {
+  float: left;
+  padding: 5px;
+}
+
+.left {
+  width: 25%;
+}
+table {
+  border-collapse: collapse;
+  /*table-layout:fixed;*/
+  width: 80%;
+  margin-left: 10%;
+  border: 5px solid black;
+}
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+input:checked + .correct {
+  color: green;
+}
+input:checked + .incorrect {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img id="myImage" src="{{ pc.profilepic }}" width="200" height="200" alt="--">
+  <!--<img id="myImage" src="https://i.imgur.com/O9muu50.png" width="200" height="200" alt="--"> -->
+  <div class="solid">{{ pc.username }}
+    <span class="dot"></span>
+  </div>
+  <div style="margin: 6px 0;">
+  </div>
+  
+  <!-- black button class- save for later:
+    <p><button>Upload Profile Picture</button></p>
+    <p>OR</p>
+-->
+
+
+<!-- CHANGE avatar, may do later  
+  <div class="w3-dropdown-hover">
+  <p><button>Change Avatar</button></p>
+  <div class="w3-dropdown-content w3-border">
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/EhP0EcK.png'">Cat</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/MQTUOxK.png'">Rat</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/T4cBc2i.png'">Black Bear</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/IseJUQ2.png'">Utensils</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/DDi7sfg.png'">Mandala</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/cn7aQsF.png'">Mario Mushroom</button>
+    <button onclick="document.getElementById('myImage').src='https://i.imgur.com/O9muu50.png'">Default</button>
+  
+  </div>
+  </div>-->
+</div>
+
+<div class="card_bio">
+  <div>{{ pc.firstname }}, your bio reads: {{ pc.bio }}
+  {{ pc.firstname }}, your interests are: {{ pc.interest }}
+  {{ pc.firstname }}, your favorite recipe is: {{ pc.favoriterecipe }}
+  <!-- Might need this span feature:
+         <span style="color:red;" >----------------</span>
+  -->
+  <div style="margin: -50px 0;">
+  </div>
+  <p><button class='button_menu' type=submit ui-sref="editinfo">Welcome, {{ pc.firstname }}! If you want to add/edit info
+  or change your avatar, click here.</button></p>
+  </div>
+  <div style="margin: -65px 0;">
+  </div>
+</div> <br><br><br><br>
+
+<!--  
+  <div class="card_recipe">
+  <div class="recipe_buttons">
+  <p><button class='button_2' ui-sref="addrecipe"> Add Recipes</button></p>
+  </div>
+  </div>-->
+  
+  <div class="card_recipe">
+  <div style="margin: 10px 0;"> </div>
+  <P>1. Red food coloring comes from:<BR>
+  <input type="radio" id="1" name="1. Red food coloring comes from" value="flowers">
+  <label class="incorrect" for="1">flowers</label>
+  <input type="radio" id="2" name="1. Red food coloring comes from" value="hair">
+  <label class="incorrect" for="2">hair</label>
+  <input type="radio" id="3" name="1. Red food coloring comes from" value="bugs" >
+  <label class="correct" for="3">bugs</label><BR>
+  </p>
+
+  <P>2. Which of the following fruits comes from an herb?:<BR>
+  <input type="radio" id="4" name="2. Which of the following fruits actually comes from an herb?" value="strawberries">
+  <label class="incorrect" for="4">strawberries</label>
+  <input type="radio" id="5" name="2. Which of the following fruits actually comes from an herb?" value="bananas">
+  <label class="correct" for="5">bananas</label>
+  <input type="radio" id="6" name="2. Which of the following fruits actually comes from an herb?" value="kiwis">
+  <label class="incorrect" for="6">kiwis</label><BR>
+  </p>
+  <p><button class='button_menu' onclick="window.open('https://www.triviaquestionsnow.com/for/food-drink-trivia', '_blank');">Check out more food trivia here.</button></p>
+  </div>
+
+<div class="card_fun_fact">
+  <div>{{ pc.firstname }}, here's today's fun fact.
+  Fresh eggs sink in water, but rotten eggs float.
+  </div>
+  <div style="margin: -60px 0;">
+  </div>
+  <p><button class='button_menu' onclick="window.open('https://play.rileychildrens.org/kids-club/article/fun-healthy-food-facts', '_blank');">Learn more fun facts about food here.</button></p>
+</div>
+
+<div class="card_saved_recipes">
+  <div>
+    <div style="margin: 10px 0;"> </div>
+    {{ pc.firstname }}, here are your saved recipes.
+     <div class="row">
+            <table>
+              <tr>
+                <th width=10%>Recipe Title</th>
+                <th>Description</th>
+                <th>Uploaded By</th>
+                <th width=10% >More info</th>
+                
+              </tr>
+              <tr ng-repeat="recipe in pc.recipes">
+                <td><a href="{{recipe.source}}" target="_blank">{{recipe.name}}</a>
+                <td>{{recipe.description}}</td>
+                <td>{{recipe.user}}</td>
+                <td><button class='button_menu' ng-click="showOverlay = !showOverlay" >More info</button>
+                
+                    <div class="overlay" ng-click="showOverlay = !showOverlay" ng-show="showOverlay">
+                        <div id="text">
+                            <p>Recipe name: {{recipe.name}}</p>
+                            <p>Description: {{recipe.description}}</p>
+                            <p>Instructions: {{recipe.instructions}}</p>
+                            <p>Cuisine: {{recipe.cuisine}}</p>
+                            <p>Image:
+                            <img style="height: 100px; width: 100px;" src="{{recipe.image}}">
+                            </p>
+                            <p> <i> Click on recipe card to close </i> </p>
+                        </div>
+                    </div>
+                </td>
+              </tr>
+            </table>
+          
+            
+
+        </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
